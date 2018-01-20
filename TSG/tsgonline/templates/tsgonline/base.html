@@ -1,0 +1,81 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lange="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="{% static 'tsgonline/styles/tsgonline.css' %}"/>
+  <script src="{% static 'tsgonline/tsgonline.js' %}"></script>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <link rel="icon" href="{% static 'tsgonline/favicon.ico' %}"/>
+  <title>{% block title %}Characters{% endblock %}</title>
+
+
+</head>
+
+<body class="red-gradient">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="padding:5px" href=""><img src="" height="42" width="42"></a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href=""><img src="" height="32" width="32"> Characters</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Race</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Class</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Melee</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Ranged</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Item</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Armor</a></li>
+          <li><a href=""><img src="" height="32" width="32"> Dice</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}"><img src="" height="32" width="32"> Logout</a></li>
+{% else %}
+          <li><a href="{% url 'login' %}"><img src="" height="32" width="32"> Login</a></li>
+{% endif %}
+
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+
+  </nav>
+
+
+
+
+
+
+    <div class="container black-and-white text-center" style="margin-top:12px">
+
+
+
+
+      {% block content %}
+
+
+      {% endblock %}
+
+    </div>
+
+</body>
+
+
+
+</html>

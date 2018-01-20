@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from tsgonline import views
 
 urlpatterns = [
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^$', views.view_index, name='index' ),
     path('admin/', admin.site.urls),
+
 ]
